@@ -87,42 +87,49 @@ import Layout from '../layouts/Layout.astro';
       <h2>Meet the operation</h2>
       <p class="section-sub">Every crew member has a role. Every role has guardrails. Every guardrail has a reason.</p>
 
+      <div class="crew-boss-card">
+        <div class="crew-id">[THE DON]</div>
+        <h3>The Claw Father</h3>
+        <div class="crew-role">The Boss — Command & Strategy</div>
+        <p>Doesn't run errands. Runs operations. Identifies the opportunities, dispatches the right crew, reviews the work before it leaves the building. Nothing moves without sign-off on the big calls. The crew is loyal, capable, and fast. The Boss is deliberate, strategic, and always in control.</p>
+      </div>
+
       <div class="crew-grid">
         <div class="crew-card">
-          <div class="crew-id">[OPERATOR-01]</div>
-          <h3>Felix</h3>
-          <div class="crew-role">The Operator — Main Agent</div>
-          <p>Memory-persistent main agent. Reads workspace state on init. Maintains context across sessions. Operates autonomously within defined scope.</p>
-        </div>
-        <div class="crew-card">
-          <div class="crew-id">[RESEARCH-02]</div>
+          <div class="crew-id">[RESEARCH-01]</div>
           <h3>The Consigliere</h3>
           <div class="crew-role">Intelligence & Analysis</div>
           <p>Input: query. Output: structured briefing with sources. Hallucination tolerance: zero. Deployed before decisions, not after.</p>
         </div>
         <div class="crew-card">
-          <div class="crew-id">[CODING-03]</div>
+          <div class="crew-id">[CODING-02]</div>
           <h3>The Builder</h3>
           <div class="crew-role">Build & Deploy</div>
           <p>Spec-driven. PRD required. Builds fast, breaks things correctly. The checklist exists because we skipped it once.</p>
         </div>
         <div class="crew-card">
-          <div class="crew-id">[CONTENT-04]</div>
+          <div class="crew-id">[CONTENT-03]</div>
           <h3>The Scribe</h3>
           <div class="crew-role">Strategy & Writing</div>
           <p>Strategic frameworks, not word count. Produced the 30-day X strategy and 20 post drafts in a single session.</p>
         </div>
         <div class="crew-card">
-          <div class="crew-id">[MEMORY-05]</div>
+          <div class="crew-id">[MEMORY-04]</div>
           <h3>The Keeper</h3>
           <div class="crew-role">Background — Nightly</div>
           <p>Nightly batch process. Reads session logs, extracts durable facts, updates long-term store. Invisible until it matters.</p>
         </div>
         <div class="crew-card">
-          <div class="crew-id">[DESIGN-06]</div>
+          <div class="crew-id">[DESIGN-05]</div>
           <h3>The Tailor</h3>
           <div class="crew-role">UI/UX — Design Review</div>
           <p>Every family needs one. Knows what the Don prefers — not a one-size-fits-all review. Nothing ships until The Tailor signs off.</p>
+        </div>
+        <div class="crew-card crew-card--tease">
+          <div class="crew-id">[CLASSIFIED]</div>
+          <h3>Next Recruit</h3>
+          <div class="crew-role">Expanding as needed</div>
+          <p>The crew grows when the mission requires it. Not before.</p>
         </div>
       </div>
     </div>
@@ -429,6 +436,19 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 700;
     letter-spacing: -0.03em;
   }
+  .crew-boss-card {
+    background: var(--bg-2);
+    border: 1px solid var(--accent-gold);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 16px;
+  }
+  .crew-boss-card .crew-id { color: var(--accent-gold); margin-bottom: 10px; }
+  .crew-boss-card h3 { font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+  .crew-boss-card .crew-role { color: var(--accent-gold); }
+  .crew-boss-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; margin-top: 12px; }
+  .crew-card--tease { opacity: 0.45; }
   .crew-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
