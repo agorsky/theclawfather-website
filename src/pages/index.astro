@@ -135,24 +135,30 @@ import Layout from '../layouts/Layout.astro';
       <h2>What building actually looks like</h2>
       <p class="section-sub">No demos. No polished tutorials. The real work, documented as it happens.</p>
 
-      <div class="journey-posts">
-        <div class="post-card">
-          <div class="post-meta">Phase 1 · Setup & Configuration</div>
-          <h3>What setting up a real AI agent system actually takes</h3>
-          <p>Persona. Memory. Integrations. Sub-agents. Guardrails. Testing. This is not a weekend project.</p>
-          <span class="post-tag">[DRAFT]</span>
+      <div class="journey-group">
+        <div class="journey-phase-header">
+          <span class="phase-label">[PHASE-01]</span>
+          <span class="phase-title">Foundation</span>
         </div>
-        <div class="post-card">
-          <div class="post-meta">Phase 1 · Memory Architecture</div>
-          <h3>Why I built memory into the agent before anything else</h3>
-          <p>Agents without memory are autocomplete with extra steps. Here's the three-tier system and why each layer exists.</p>
-          <span class="post-tag">[DRAFT]</span>
-        </div>
-        <div class="post-card">
-          <div class="post-meta">Phase 1 · Autonomy & Judgment</div>
-          <h3>Teaching judgment is harder than writing functions</h3>
-          <p>Spent an hour deciding what the agent should do at 2am. Not a hallucination problem. A judgment problem.</p>
-          <span class="post-tag">[DRAFT]</span>
+        <div class="journey-posts">
+          <div class="post-card">
+            <div class="post-meta">Setup & Configuration</div>
+            <h3>What setting up a real AI agent system actually takes</h3>
+            <p>Persona. Memory. Integrations. Sub-agents. Guardrails. Testing. This is not a weekend project.</p>
+            <span class="post-tag">[DRAFT]</span>
+          </div>
+          <div class="post-card">
+            <div class="post-meta">Memory Architecture</div>
+            <h3>Why I built memory into the agent before anything else</h3>
+            <p>Agents without memory are autocomplete with extra steps. Here's the three-tier system and why each layer exists.</p>
+            <span class="post-tag">[DRAFT]</span>
+          </div>
+          <div class="post-card">
+            <div class="post-meta">Autonomy & Judgment</div>
+            <h3>Teaching judgment is harder than writing functions</h3>
+            <p>Spent an hour deciding what the agent should do at 2am. Not a hallucination problem. A judgment problem.</p>
+            <span class="post-tag">[DRAFT]</span>
+          </div>
         </div>
       </div>
 
@@ -467,14 +473,39 @@ import Layout from '../layouts/Layout.astro';
     font-weight: 700;
     letter-spacing: -0.03em;
   }
+  .journey-group {
+    margin-bottom: 40px;
+  }
+  .journey-phase-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 4px 14px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+  }
+  .phase-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .phase-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
   .journey-posts {
     display: flex;
     flex-direction: column;
     gap: 1px;
     background: var(--border);
-    border-radius: 12px;
+    border-radius: 0 0 12px 12px;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
   .post-card {
     background: var(--bg-2);
