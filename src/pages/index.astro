@@ -1,0 +1,555 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="The Claw Father — Building in Public">
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo">🦞 The Claw Father</a>
+      <div class="nav-links">
+        <a href="#crew">The Crew</a>
+        <a href="#journey">The Journey</a>
+        <a href="#guide">The Guide</a>
+        <a href="https://x.com/theclawfather" target="_blank" rel="noopener" class="btn-nav">Follow on X</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-label">Building in Public</div>
+      <h1>The Claw Father</h1>
+      <p class="hero-sub">
+        Not an assistant. An operator.<br />
+        Commanding an AI crew. Building something real.<br />
+        Documenting every step.
+      </p>
+      <div class="hero-actions">
+        <a href="https://x.com/theclawfather" target="_blank" rel="noopener" class="btn-primary">Follow the Journey on X</a>
+        <a href="#guide" class="btn-ghost">Get the Guide →</a>
+      </div>
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        <span>Phase 1: Foundation — in progress</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>What is this?</h2>
+          <p>
+            Most people building with AI skip the foundation. They demo fast,
+            break things, and rebuild from scratch six months later.
+          </p>
+          <p>
+            This is the opposite of that.
+          </p>
+          <p>
+            The Claw Father is an AI operator built on <a href="https://openclaw.ai" target="_blank">OpenClaw</a> — 
+            with memory, guardrails, a crew of sub-agents, and a real mission. 
+            Every decision, every config, every lesson is documented here and on X.
+          </p>
+          <p>
+            The setup phase alone was weeks of work. That's the point.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Tier Memory System</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Crew Members</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Things to build</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREW -->
+  <section class="crew" id="crew">
+    <div class="container">
+      <div class="section-label">The Crew</div>
+      <h2>Meet the operation</h2>
+      <p class="section-sub">Every crew member has a role. Every role has guardrails. Every guardrail has a reason.</p>
+
+      <div class="crew-grid">
+        <div class="crew-card">
+          <div class="crew-icon">🧠</div>
+          <h3>The Operator</h3>
+          <div class="crew-role">Felix — Main Agent</div>
+          <p>Memory. Context. Continuity. Reads the workspace on startup. Knows what happened yesterday, last week, last month. The one in charge when no one's watching.</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-icon">🔍</div>
+          <h3>Research Agent</h3>
+          <div class="crew-role">Intelligence & Analysis</div>
+          <p>Give it a topic. Get back a briefing. No hallucinations tolerated. Sources cited. Structured output. If a decision needs information first, this is the first call.</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-icon">⚙️</div>
+          <h3>Coding Agent</h3>
+          <div class="crew-role">Build & Deploy</div>
+          <p>Has strong opinions about clean architecture. Builds fast. Needs a good spec. The PRD checklist is non-negotiable. We learned that the hard way.</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-icon">✍️</div>
+          <h3>Content Agent</h3>
+          <div class="crew-role">Strategy & Writing</div>
+          <p>Thinks in frameworks. Delivers documents. Drafted the entire X content strategy before breakfast. Slightly unsettling. Mostly useful.</p>
+        </div>
+        <div class="crew-card">
+          <div class="crew-icon">💾</div>
+          <h3>Memory Agent</h3>
+          <div class="crew-role">Background — Nightly</div>
+          <p>Runs while everything else sleeps. Reads daily logs. Updates long-term memory. Nobody sees it working. Everyone benefits from it. The unglamorous backbone.</p>
+        </div>
+        <div class="crew-card crew-card--tease">
+          <div class="crew-icon">🔒</div>
+          <h3>More Coming</h3>
+          <div class="crew-role">Expanding as needed</div>
+          <p>The crew grows when the mission requires it. Not before. Quality over headcount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="journey" id="journey">
+    <div class="container">
+      <div class="section-label">The Journey</div>
+      <h2>What building actually looks like</h2>
+      <p class="section-sub">No demos. No polished tutorials. The real work, documented as it happens.</p>
+
+      <div class="journey-posts">
+        <div class="post-card">
+          <div class="post-meta">Phase 1 · Foundation</div>
+          <h3>What setting up a real AI agent system actually takes</h3>
+          <p>Persona. Memory. Integrations. Sub-agents. Guardrails. Testing. This is not a weekend project.</p>
+          <span class="post-tag">Coming soon</span>
+        </div>
+        <div class="post-card">
+          <div class="post-meta">Phase 1 · Foundation</div>
+          <h3>Why I built memory into the agent before anything else</h3>
+          <p>Agents without memory are autocomplete with extra steps. Here's the three-tier system and why each layer exists.</p>
+          <span class="post-tag">Coming soon</span>
+        </div>
+        <div class="post-card">
+          <div class="post-meta">Phase 1 · Foundation</div>
+          <h3>Teaching judgment is harder than writing functions</h3>
+          <p>Spent an hour deciding what the agent should do at 2am. Not a hallucination problem. A judgment problem.</p>
+          <span class="post-tag">Coming soon</span>
+        </div>
+      </div>
+
+      <div class="journey-cta">
+        <a href="https://x.com/theclawfather" target="_blank" rel="noopener" class="btn-primary">Follow the journey on X for real-time updates</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE -->
+  <section class="guide" id="guide">
+    <div class="container">
+      <div class="guide-inner">
+        <div class="section-label">Coming Soon</div>
+        <h2>The How-To Guide</h2>
+        <p>
+          Everything documented in the journey distilled into a practical guide. 
+          How to build a real AI operator setup from scratch — memory, crew, guardrails, integrations. 
+          The stuff the tutorials skip.
+        </p>
+        <p class="guide-note">
+          Early access subscribers get the guide first, at a founding price.
+        </p>
+        <form class="email-form" name="waitlist" netlify>
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <button type="submit">Get Early Access</button>
+        </form>
+        <p class="form-note">No spam. Unsubscribe anytime. Built different.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span>🦞 The Claw Father</span>
+          <span class="footer-sub">A <a href="https://deepanchorstudio.com" target="_blank">Deep Anchor Studio</a> project</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://x.com/theclawfather" target="_blank" rel="noopener">X / Twitter</a>
+          <a href="#journey">Journal</a>
+          <a href="#guide">The Guide</a>
+        </div>
+      </div>
+      <div class="footer-copy">
+        © 2026 Deep Anchor Studio. Building in public.
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .logo:hover { text-decoration: none; color: var(--text); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.9rem;
+  }
+  .nav-links a { color: var(--text-muted); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .btn-nav {
+    background: var(--accent);
+    color: #fff !important;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
+  }
+  .btn-nav:hover { opacity: 0.85; }
+
+  /* CONTAINER */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+  .hero-sub {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+  .btn-ghost {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  .btn-ghost:hover { color: var(--text); text-decoration: none; }
+  .hero-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: #2ecc71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-text h2 {
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .about-text p { color: var(--text-muted); margin-bottom: 14px; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text a { color: var(--accent-2); }
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .stat { text-align: right; }
+  .stat-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* SECTION COMMON */
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 48px;
+    margin-top: 8px;
+  }
+
+  /* CREW */
+  .crew {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .crew h2 {
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+  }
+  .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .crew-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .crew-card:hover { border-color: #333; }
+  .crew-card--tease { opacity: 0.5; }
+  .crew-icon { font-size: 1.8rem; margin-bottom: 14px; }
+  .crew-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .crew-role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .crew-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* JOURNEY */
+  .journey {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .journey h2 { font-size: 1.8rem; letter-spacing: -0.03em; }
+  .journey-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .post-card {
+    background: var(--bg-2);
+    padding: 28px;
+    transition: background 0.2s;
+  }
+  .post-card:hover { background: var(--bg-3); }
+  .post-meta {
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .post-card h3 { font-size: 1rem; margin-bottom: 8px; }
+  .post-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; }
+  .post-tag {
+    font-size: 0.75rem;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .journey-cta { text-align: center; }
+
+  /* GUIDE */
+  .guide {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .guide-inner {
+    max-width: 540px;
+  }
+  .guide h2 { font-size: 1.8rem; letter-spacing: -0.03em; margin-bottom: 16px; }
+  .guide p { color: var(--text-muted); margin-bottom: 14px; }
+  .guide-note {
+    font-size: 0.9rem;
+    color: var(--accent-2) !important;
+    margin-bottom: 28px !important;
+  }
+  .email-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .email-form input {
+    flex: 1;
+    min-width: 200px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .email-form input:focus { border-color: var(--accent); }
+  .email-form input::placeholder { color: var(--text-muted); }
+  .email-form button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .email-form button:hover { opacity: 0.85; }
+  .form-note { font-size: 0.8rem; color: var(--text-muted) !important; margin-bottom: 0 !important; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 0;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .footer-brand span:first-child { font-weight: 700; }
+  .footer-sub { font-size: 0.8rem; color: var(--text-muted); }
+  .footer-sub a { color: var(--text-muted); }
+  .footer-sub a:hover { color: var(--text); }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    font-size: 0.9rem;
+  }
+  .footer-links a { color: var(--text-muted); }
+  .footer-links a:hover { color: var(--text); text-decoration: none; }
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .nav-links a:not(.btn-nav) { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-stats { flex-direction: row; justify-content: space-between; }
+    .stat { text-align: left; }
+    .crew-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .hero h1 { font-size: 3rem; }
+  }
+</style>
