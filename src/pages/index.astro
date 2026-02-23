@@ -148,23 +148,23 @@ import Layout from '../layouts/Layout.astro';
           <span class="phase-title">Foundation</span>
         </div>
         <div class="journey-posts">
-          <div class="post-card">
+          <a href="/posts/setup-reality" class="post-card post-card--live">
             <div class="post-meta">Setup & Configuration</div>
             <h3>What setting up a real AI agent system actually takes</h3>
             <p>Persona. Memory. Integrations. Sub-agents. Guardrails. Testing. This is not a weekend project.</p>
-            <span class="post-tag">[DRAFT]</span>
-          </div>
-          <div class="post-card">
+            <span class="post-tag post-tag--live">[READ]</span>
+          </a>
+          <div class="post-card post-card--soon">
             <div class="post-meta">Memory Architecture</div>
             <h3>Why I built memory into the agent before anything else</h3>
             <p>Agents without memory are autocomplete with extra steps. Here's the three-tier system and why each layer exists.</p>
-            <span class="post-tag">[DRAFT]</span>
+            <span class="post-tag">[COMING SOON]</span>
           </div>
-          <div class="post-card">
+          <div class="post-card post-card--soon">
             <div class="post-meta">Autonomy & Judgment</div>
             <h3>Teaching judgment is harder than writing functions</h3>
             <p>Spent an hour deciding what the agent should do at 2am. Not a hallucination problem. A judgment problem.</p>
-            <span class="post-tag">[DRAFT]</span>
+            <span class="post-tag">[COMING SOON]</span>
           </div>
         </div>
       </div>
@@ -590,6 +590,18 @@ import Layout from '../layouts/Layout.astro';
     color: var(--text-faint);
     letter-spacing: 0.08em;
   }
+  .post-tag--live { color: var(--accent-gold); }
+  .post-card--live {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    border-left: 2px solid var(--accent-gold);
+    cursor: pointer;
+  }
+  .post-card--live:hover { background: var(--bg-3); text-decoration: none; }
+  .post-card--live h3 { color: var(--text); }
+  .post-card--soon { opacity: 0.5; cursor: default; }
+  .post-card--soon:hover { background: var(--bg-2); }
   .journey-cta { text-align: center; }
 
   /* GUIDE */
