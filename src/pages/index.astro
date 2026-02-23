@@ -201,6 +201,7 @@ import Layout from '../layouts/Layout.astro';
           const form = document.getElementById('waitlist-form');
           const msg = document.getElementById('form-msg');
           const btn = document.getElementById('submit-btn');
+          const BEEHIIV_URL = 'https://app.beehiiv.com/subscribe/pub_2dab85fc-eef4-4950-b3d6-449f724bef1a';
 
           form?.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -208,32 +209,29 @@ import Layout from '../layouts/Layout.astro';
             btn.setAttribute('disabled', 'true');
 
             const email = new FormData(form).get('email');
+
+            // Try on-site API first, fall back to Beehiiv hosted page
             try {
               const res = await fetch('/api/subscribe', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),
               });
-              const data = await res.json();
-              form.style.display = 'none';
-              msg.style.display = 'block';
-              if (data.success) {
-                msg.className = 'form-msg form-msg--success';
-                msg.textContent = "You're on the list. Early access notification incoming.";
-              } else {
-                msg.className = 'form-msg form-msg--error';
-                msg.textContent = data.error || 'Something went wrong. Try again.';
-                form.style.display = 'flex';
-                btn.textContent = 'Get Early Access';
-                btn.removeAttribute('disabled');
+              if (res.ok) {
+                const data = await res.json();
+                if (data.success) {
+                  form.style.display = 'none';
+                  msg.style.display = 'block';
+                  msg.className = 'form-msg form-msg--success';
+                  msg.textContent = "You're on the list. Early access notification incoming.";
+                  return;
+                }
               }
+              // API not available — redirect to Beehiiv
+              window.location.href = `${BEEHIIV_URL}?email=${encodeURIComponent(email)}`;
             } catch {
-              msg.style.display = 'block';
-              msg.className = 'form-msg form-msg--error';
-              msg.textContent = 'Connection error. Try again.';
-              form.style.display = 'flex';
-              btn.textContent = 'Get Early Access';
-              btn.removeAttribute('disabled');
+              // Network error — redirect to Beehiiv
+              window.location.href = `${BEEHIIV_URL}?email=${encodeURIComponent(email)}`;
             }
           });
         </script>
