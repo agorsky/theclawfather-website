@@ -207,9 +207,13 @@ import Layout from '../layouts/Layout.astro';
             btn.textContent = 'Sending...';
             btn.setAttribute('disabled', 'true');
 
-            const formData = new FormData(form);
+            const email = new FormData(form).get('email');
             try {
-              const res = await fetch('/api/subscribe', { method: 'POST', body: formData });
+              const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+              });
               const data = await res.json();
               form.style.display = 'none';
               msg.style.display = 'block';
