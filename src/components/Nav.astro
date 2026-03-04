@@ -1,0 +1,123 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/crew', label: 'Crew' },
+  { href: '/the-fed', label: 'The Fed' },
+  { href: '/dispatcher', label: 'Dispatcher' },
+];
+---
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">The Claw Father</a>
+    <div class="nav-links" id="nav-links">
+      {links.map(link => (
+        <a href={link.href} class:list={[{ active: currentPath.startsWith(link.href) }]}>{link.label}</a>
+      ))}
+      <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener" class="btn-nav">Follow on X</a>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    links?.classList.toggle('open');
+  });
+</script>
+
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    font-family: var(--font-serif);
+  }
+  .logo:hover { text-decoration: none; color: var(--text); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.9rem;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); text-decoration: none; }
+  .nav-links a.active { color: var(--accent-gold); }
+  .btn-nav {
+    background: var(--accent-red);
+    color: #fff !important;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: opacity 0.2s;
+  }
+  .btn-nav:hover { opacity: 0.85; }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-muted);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  @media (max-width: 600px) {
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(8,8,8,0.98);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      padding: 16px 24px 24px;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+    .btn-nav { text-align: center; }
+  }
+</style>

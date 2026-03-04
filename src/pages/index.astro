@@ -1,20 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="The Claw Father — Building in Public">
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="logo">The Claw Father</a>
-      <div class="nav-links">
-        <a href="#crew">The Crew</a>
-        <a href="#journey">The Journey</a>
-        <a href="#guide">The Guide</a>
-        <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener" class="btn-nav">Follow on X</a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <!-- HERO -->
   <section class="hero">
@@ -261,51 +251,6 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,8,8,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    font-family: var(--font-serif);
-  }
-  .logo:hover { text-decoration: none; color: var(--text); }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    font-size: 0.9rem;
-  }
-  .nav-links a { color: var(--text-muted); transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
-  .btn-nav {
-    background: var(--accent-red);
-    color: #fff !important;
-    padding: 7px 16px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: opacity 0.2s;
-  }
-  .btn-nav:hover { opacity: 0.85; }
-
   /* CONTAINER */
   .container {
     max-width: var(--max-w);
@@ -725,8 +670,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* RESPONSIVE */
   @media (max-width: 600px) {
-    .nav-links a:not(.btn-nav) { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
+.about-grid { grid-template-columns: 1fr; }
     .about-stats { flex-direction: row; justify-content: space-between; }
     .stat { text-align: left; }
     .crew-grid { grid-template-columns: 1fr; }
