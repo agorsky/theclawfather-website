@@ -1,0 +1,114 @@
+---
+import { scoringRules, scoringParams } from '../data/fed-scoring';
+
+const positive = scoringRules.filter(r => r.type === 'positive');
+const negative = scoringRules.filter(r => r.type === 'negative');
+---
+
+<div class="scoring-table">
+  <div class="scoring-group">
+    <h3 class="scoring-heading scoring-heading--positive">Positive Actions</h3>
+    <div class="scoring-list">
+      {positive.map(rule => (
+        <div class="scoring-row">
+          <span class="scoring-points scoring-points--positive">+{rule.points}</span>
+          <span class="scoring-desc">{rule.description}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="scoring-group">
+    <h3 class="scoring-heading scoring-heading--negative">Negative Actions</h3>
+    <div class="scoring-list">
+      {negative.map(rule => (
+        <div class="scoring-row">
+          <span class="scoring-points scoring-points--negative">{rule.points}</span>
+          <span class="scoring-desc">{rule.description}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="scoring-params">
+    <div class="param">
+      <span class="param-label">Repeat Offense</span>
+      <span class="param-value">x{scoringParams.repeatOffenseMultiplier} multiplier</span>
+    </div>
+    <div class="param">
+      <span class="param-label">Score Range</span>
+      <span class="param-value">{scoringParams.floor} - {scoringParams.ceiling}</span>
+    </div>
+    <div class="param">
+      <span class="param-label">New Agent Start</span>
+      <span class="param-value">{scoringParams.startingScore}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .scoring-table {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .scoring-group {
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scoring-heading {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .scoring-heading--positive { color: #6fcf97; }
+  .scoring-heading--negative { color: #f08080; }
+  .scoring-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .scoring-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .scoring-points {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-width: 40px;
+  }
+  .scoring-points--positive { color: #6fcf97; }
+  .scoring-points--negative { color: #f08080; }
+  .scoring-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .scoring-params {
+    padding: 20px 28px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .param {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .param-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .param-value {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-gold);
+  }
+</style>
