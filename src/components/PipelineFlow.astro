@@ -1,0 +1,99 @@
+---
+interface Stage {
+  label: string;
+  description: string;
+}
+
+const stages: Stage[] = [
+  { label: 'Backlog', description: 'Epics and features defined. Tasks broken down with clear specs.' },
+  { label: 'Dispatch', description: 'Agent assigned. Session created. Work tracked from first commit.' },
+  { label: 'Execute', description: 'Agent builds. Commits logged. Progress reported in real time.' },
+  { label: 'Review', description: 'Work reviewed. Compliance checked. Score updated. PR opened.' },
+];
+---
+
+<div class="pipeline">
+  {stages.map((stage, i) => (
+    <div class="pipeline-stage">
+      <div class="pipeline-num">{i + 1}</div>
+      <div class="pipeline-content">
+        <div class="pipeline-label">{stage.label}</div>
+        <p class="pipeline-desc">{stage.description}</p>
+      </div>
+      {i < stages.length - 1 && <div class="pipeline-arrow"></div>}
+    </div>
+  ))}
+</div>
+
+<style>
+  .pipeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .pipeline-stage {
+    position: relative;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .pipeline-num {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    margin: 0 auto 12px;
+  }
+  .pipeline-label {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+  .pipeline-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .pipeline-arrow {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 8px solid var(--border-2);
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .pipeline {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .pipeline-stage {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      padding: 20px 24px;
+    }
+    .pipeline-num {
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .pipeline-arrow {
+      display: none;
+    }
+  }
+</style>

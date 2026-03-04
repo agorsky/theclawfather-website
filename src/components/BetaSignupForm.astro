@@ -1,0 +1,146 @@
+---
+---
+
+<div class="beta-form-wrap">
+  <form class="beta-form" id="beta-form">
+    <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address" />
+    <div class="honeypot" aria-hidden="true">
+      <input type="text" name="website" tabindex="-1" autocomplete="off" />
+    </div>
+    <button type="submit" id="beta-submit">Join the Beta</button>
+  </form>
+  <div id="beta-msg" class="form-msg" style="display:none;"></div>
+  <p class="form-note">No spam. We'll reach out when your spot opens.</p>
+</div>
+
+<script>
+  const form = document.getElementById('beta-form') as HTMLFormElement | null;
+  const msg = document.getElementById('beta-msg');
+  const btn = document.getElementById('beta-submit') as HTMLButtonElement | null;
+
+  // TODO: Set PUBLIC_BEEHIIV_API_URL and PUBLIC_BEEHIIV_LIST_TAG env vars in Vercel
+  const BEEHIIV_API_URL = import.meta.env.PUBLIC_BEEHIIV_API_URL || '';
+  const BEEHIIV_LIST_TAG = import.meta.env.PUBLIC_BEEHIIV_LIST_TAG || 'dispatcher-beta';
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const honeypot = formData.get('website')?.toString() || '';
+    if (honeypot) return; // Bot caught
+
+    const email = formData.get('email')?.toString().trim();
+    if (!email) return;
+
+    if (btn) {
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+    }
+
+    if (!BEEHIIV_API_URL) {
+      // TODO: Configure Beehiiv env vars for production
+      console.log('Beta signup (Beehiiv not configured):', { email, tag: BEEHIIV_LIST_TAG });
+      form.style.display = 'none';
+      if (msg) {
+        msg.style.display = 'block';
+        msg.className = 'form-msg form-msg--success';
+        msg.textContent = "You're on the list. We'll be in touch.";
+      }
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, tag: BEEHIIV_LIST_TAG }),
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        if (msg) {
+          msg.style.display = 'block';
+          msg.className = 'form-msg form-msg--success';
+          msg.textContent = "You're on the list. We'll be in touch.";
+        }
+      } else {
+        throw new Error('Signup failed');
+      }
+    } catch {
+      if (msg) {
+        msg.style.display = 'block';
+        msg.className = 'form-msg form-msg--error';
+        msg.textContent = 'Something went wrong. Try again.';
+      }
+      if (btn) {
+        btn.textContent = 'Join the Beta';
+        btn.disabled = false;
+      }
+    }
+  });
+</script>
+
+<style>
+  .beta-form-wrap {
+    max-width: 440px;
+  }
+  .beta-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .beta-form input[type="email"] {
+    flex: 1;
+    min-width: 180px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: var(--font);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .beta-form input[type="email"]:focus { border-color: var(--accent-red); }
+  .beta-form input[type="email"]::placeholder { color: var(--text-faint); }
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  .beta-form button {
+    background: var(--accent-red);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: var(--font);
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .beta-form button:hover { opacity: 0.85; }
+  .beta-form button:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-note {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+  }
+  .form-msg {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  .form-msg--success { background: #0d2b1a; border: 1px solid #2d6a4f; color: #6fcf97; }
+  .form-msg--error { background: #2b0d0d; border: 1px solid var(--accent-red); color: #f08080; }
+
+  @media (max-width: 480px) {
+    .beta-form { flex-direction: column; }
+    .beta-form button { width: 100%; }
+  }
+</style>

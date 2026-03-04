@@ -1,25 +1,259 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PipelineFlow from '../components/PipelineFlow.astro';
+import BetaSignupForm from '../components/BetaSignupForm.astro';
 ---
 
 <Layout title="Dispatcher - The Claw Father" description="Ship work to AI agents with structure. Dispatcher turns your backlog into tracked, completed tasks.">
-  <main>
+  <Nav />
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="container">
-      <h1>Dispatcher</h1>
-      <p>Coming soon.</p>
+      <div class="hero-label">Now in Beta</div>
+      <h1>Stop managing agents.<br />Start dispatching work.</h1>
+      <p class="hero-sub">You've got AI agents. You've got a backlog. But nothing connects them. Tasks fall through the cracks. Progress is invisible. You're the bottleneck.</p>
+      <p class="hero-sub">Dispatcher fixes that. Define epics, break them into tasks, assign agents, and track everything from start to PR.</p>
+      <a href="#beta" class="btn-primary">Get Early Access</a>
     </div>
-  </main>
+  </section>
+
+  <!-- PIPELINE FLOW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">The Pipeline</div>
+      <h2>From backlog to done</h2>
+      <p class="section-sub">Four stages. Full visibility. Every task tracked from spec to shipped.</p>
+      <PipelineFlow />
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">How It Works</div>
+      <h2>Three steps to structured output</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>Define your work</h3>
+            <p>Create epics and features. Break them into tasks with clear specs. Dispatcher keeps your backlog organized and ready for assignment.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>Dispatch to agents</h3>
+            <p>Assign tasks to AI agents. Each agent gets a session with full context - the spec, the constraints, and the expected output. No guessing.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>Track and ship</h3>
+            <p>Watch progress in real time. Agents report status, commit code, and mark tasks complete. You review the work and merge when it's ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Who It's For</div>
+      <h2>Built for people who ship with AI</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">solo</div>
+          <h3>Solo Builders</h3>
+          <p>You're one person with six agents. Dispatcher makes sure nothing falls through the cracks and your agents don't repeat work.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">team</div>
+          <h3>Small Teams</h3>
+          <p>Your team uses AI agents daily. Dispatcher gives everyone visibility into what's running, what's done, and what's blocked.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">ops</div>
+          <h3>AI Operators</h3>
+          <p>You run structured AI workflows. Dispatcher gives you the control plane you've been building in spreadsheets and Notion hacks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETA SIGNUP -->
+  <section class="section beta-section" id="beta">
+    <div class="container">
+      <div class="section-label">Early Access</div>
+      <h2>Join the beta</h2>
+      <p class="section-sub">We're letting people in gradually. Drop your email and we'll reach out when your spot opens.</p>
+      <BetaSignupForm />
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
 
 <style>
   .container {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: 80px 24px;
+    padding: 0 24px;
   }
-  h1 {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-gold);
+    font-weight: 400;
     margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.15;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 540px;
+    margin-bottom: 16px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-red);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+    margin-top: 8px;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+
+  /* SECTIONS */
+  .section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    margin-top: 8px;
+    max-width: 540px;
+  }
+
+  /* STEPS */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 24px;
+  }
+  .step {
+    display: flex;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .step-content h3 {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* AUDIENCE */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .audience-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .audience-icon {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .audience-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .audience-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* BETA */
+  .beta-section {
+    border-bottom: none;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .audience-grid { grid-template-columns: 1fr; }
   }
 </style>
