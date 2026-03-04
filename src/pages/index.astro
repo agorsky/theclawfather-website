@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="The Claw Father — Building in Public">
@@ -229,25 +230,7 @@ import Nav from '../components/Nav.astro';
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="footer-logo"><span class="footer-logo-box">TCF</span> The Claw Father</span>
-          <span class="footer-sub">A <a href="https://deepanchorstudio.com" target="_blank">Deep Anchor Studio</a> project</span>
-        </div>
-        <div class="footer-links">
-          <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener">X / Twitter</a>
-          <a href="#journey">Journal</a>
-          <a href="#guide">The Guide</a>
-        </div>
-      </div>
-      <div class="footer-copy">
-        &copy; 2026 Deep Anchor Studio. Building in public.
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
 
 <style>
@@ -617,64 +600,12 @@ import Nav from '../components/Nav.astro';
   .form-msg--success { background: #0d2b1a; border: 1px solid #2d6a4f; color: #6fcf97; }
   .form-msg--error { background: #2b0d0d; border: 1px solid var(--accent-red); color: #f08080; }
 
-  /* FOOTER */
-  footer {
-    padding: 40px 0;
-  }
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .footer-logo {
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .footer-logo-box {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    color: var(--accent-gold);
-    background: var(--bg-3);
-    border: 1px solid var(--border);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 400;
-  }
-  .footer-sub { font-size: 0.8rem; color: var(--text-muted); }
-  .footer-sub a { color: var(--text-muted); }
-  .footer-sub a:hover { color: var(--text); }
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    font-size: 0.9rem;
-  }
-  .footer-links a { color: var(--text-muted); }
-  .footer-links a:hover { color: var(--text); text-decoration: none; }
-  .footer-copy {
-    font-size: 0.8rem;
-    color: var(--text-faint);
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-  }
-
   /* RESPONSIVE */
   @media (max-width: 600px) {
-.about-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
     .about-stats { flex-direction: row; justify-content: space-between; }
     .stat { text-align: left; }
     .crew-grid { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
     .hero h1 { font-size: 3rem; }
   }
 </style>
