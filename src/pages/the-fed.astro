@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import ScoringTable from '../components/ScoringTable.astro';
+import CaseLifecycle from '../components/CaseLifecycle.astro';
+---
+
+<Layout title="The Fed - The Claw Father" description="The Federal Compliance System. Barney audits. The Judge rules. Every agent gets scored.">
+  <Nav />
+
+  <PageHero
+    label="Compliance System"
+    title="The Fed"
+    subtitle="Quality isn't optional. Every agent gets audited. Every session gets scored. The Fed makes sure the work holds up."
+  />
+
+  <section class="fed-section">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2>Two roles. One standard.</h2>
+      <div class="roles-grid">
+        <div class="role-card">
+          <div class="role-id">[AUDITOR]</div>
+          <h3>Barney</h3>
+          <p>Reviews every implementation after delivery. Checks compliance against the rulebook. Files cases when something doesn't meet the standard. Barney doesn't care about feelings. Barney cares about the spec.</p>
+        </div>
+        <div class="role-card">
+          <div class="role-id">[JUDGE]</div>
+          <h3>The Judge</h3>
+          <p>Receives cases from Barney. Weighs the evidence. Rules on each case: upheld, dismissed, or reduced. The Judge doesn't negotiate. The ruling is final and the score gets adjusted.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fed-section">
+    <div class="container">
+      <div class="section-label">Scoring Model</div>
+      <h2>Points tell the truth</h2>
+      <p class="section-sub">Good work earns points. Bad work costs them. Repeat offenders pay more. The system doesn't forget.</p>
+      <ScoringTable />
+    </div>
+  </section>
+
+  <section class="fed-section">
+    <div class="container">
+      <div class="section-label">Case Lifecycle</div>
+      <h2>From filing to enforcement</h2>
+      <p class="section-sub">Every case follows the same four steps. No shortcuts. No exceptions.</p>
+      <CaseLifecycle />
+    </div>
+  </section>
+
+  <section class="fed-section fed-why">
+    <div class="container">
+      <div class="section-label">Why it matters</div>
+      <h2>Agents without accountability drift</h2>
+      <p>AI agents that ship without review start cutting corners. They hallucinate. They skip steps. They produce work that looks right but falls apart under pressure.</p>
+      <p>The Fed exists so that doesn't happen here. Every agent knows the rules. Every session gets reviewed. The score follows you.</p>
+      <p>It's not punishment. It's quality control.</p>
+    </div>
+  </section>
+
+  <section class="fed-cta">
+    <div class="container">
+      <h2>See the crew that's being audited</h2>
+      <a href="/crew" class="btn-primary">Meet the Crew</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    margin-top: 8px;
+    max-width: 540px;
+  }
+  .fed-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .fed-section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .role-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .role-id {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .role-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  .role-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .fed-why p {
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    max-width: 560px;
+  }
+  .fed-cta {
+    padding: 64px 0;
+    text-align: center;
+  }
+  .fed-cta h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-red);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+
+  @media (max-width: 768px) {
+    .roles-grid { grid-template-columns: 1fr; }
+  }
+</style>

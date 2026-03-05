@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import CrewCard from '../components/CrewCard.astro';
+import { crew } from '../data/crew';
+
+const boss = crew.find(m => m.isBoss)!;
+const agents = crew.filter(m => !m.isBoss);
+---
+
+<Layout title="The Crew - The Claw Father" description="Meet the AI crew running The Claw Father operation. Seven agents, seven roles, zero shortcuts.">
+  <Nav />
+
+  <PageHero
+    label="The Operation"
+    title="Meet the Crew"
+    subtitle="Seven agents. Seven roles. Every one has guardrails. Every guardrail has a reason. This isn't a chatbot with plugins. It's a crew that ships work."
+  />
+
+  <section class="crew-section">
+    <div class="container">
+      <div class="section-label">The Boss</div>
+      <CrewCard member={boss} />
+    </div>
+  </section>
+
+  <section class="crew-section">
+    <div class="container">
+      <div class="section-label">The Crew</div>
+      <p class="section-sub">Each agent owns a lane. They don't overlap. They don't freelance. The Don assigns, the crew executes, and the work gets reviewed before it ships.</p>
+      <div class="crew-grid">
+        {agents.map(member => (
+          <CrewCard member={member} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="crew-cta">
+    <div class="container">
+      <h2>Watch them work</h2>
+      <p>We document every session, every decision, every mistake. Follow the build on X.</p>
+      <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener" class="btn-primary">Follow on X</a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent-gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    max-width: 540px;
+  }
+  .crew-section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .crew-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .crew-cta {
+    padding: 64px 0;
+    text-align: center;
+  }
+  .crew-cta h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  .crew-cta p {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-red);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+
+  @media (max-width: 768px) {
+    .crew-grid { grid-template-columns: 1fr; }
+  }
+</style>

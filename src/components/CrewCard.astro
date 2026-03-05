@@ -1,0 +1,81 @@
+---
+import type { CrewMember } from '../data/crew';
+
+interface Props {
+  member: CrewMember;
+}
+
+const { member } = Astro.props;
+---
+
+{member.isBoss ? (
+  <div class="crew-boss-card">
+    <div class="crew-id">[{member.agentId}]</div>
+    <h3>{member.emoji} {member.name}</h3>
+    <div class="crew-role">{member.character} - {member.role}</div>
+    <div class="crew-meta">{member.showFilm}</div>
+    <p>{member.bio}</p>
+  </div>
+) : (
+  <div class="crew-card">
+    <div class="crew-id">[{member.agentId}]</div>
+    <h3>{member.emoji} {member.name}</h3>
+    <div class="crew-role">{member.character} - {member.role}</div>
+    <div class="crew-meta">{member.showFilm}</div>
+    <p>{member.bio}</p>
+  </div>
+)}
+
+<style>
+  .crew-boss-card {
+    background: var(--bg-2);
+    border: 1px solid var(--accent-gold);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 10px;
+    padding: 32px;
+  }
+  .crew-boss-card .crew-id { color: var(--accent-gold); margin-bottom: 10px; }
+  .crew-boss-card h3 { font-size: 1.3rem; color: #fff; margin-bottom: 4px; }
+  .crew-boss-card .crew-role { color: var(--accent-gold); }
+  .crew-boss-card .crew-meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+  .crew-boss-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+  .crew-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .crew-card:hover { border-color: var(--border-2); }
+  .crew-id {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+  }
+  .crew-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .crew-role {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 400;
+  }
+  .crew-meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    margin-top: 4px;
+    margin-bottom: 12px;
+  }
+  .crew-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+</style>

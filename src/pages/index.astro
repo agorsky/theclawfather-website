@@ -1,20 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="The Claw Father — Building in Public">
-  <!-- NAV -->
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="logo">The Claw Father</a>
-      <div class="nav-links">
-        <a href="#crew">The Crew</a>
-        <a href="#journey">The Journey</a>
-        <a href="#guide">The Guide</a>
-        <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener" class="btn-nav">Follow on X</a>
-      </div>
-    </div>
-  </nav>
+<Layout title="The Claw Father -Building in Public">
+  <Nav />
 
   <!-- HERO -->
   <section class="hero">
@@ -40,7 +31,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="hero-status">
         <span class="status-dot"></span>
-        <span>Phase 1: Foundation — in progress</span>
+        <span>Phase 1: Foundation -in progress</span>
       </div>
     </div>
   </section>
@@ -56,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
             Memory, guardrails, a crew of sub-agents, a real mission.
           </p>
           <p>
-            Every decision, every config, every lesson — documented here and on X.
+            Every decision, every config, every lesson -documented here and on X.
           </p>
           <p>
             The setup phase alone was weeks of deliberate work. That's the point.
@@ -90,7 +81,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="crew-boss-card">
         <div class="crew-id">[THE DON]</div>
         <h3>The Claw Father</h3>
-        <div class="crew-role">The Boss — Command & Strategy</div>
+        <div class="crew-role">The Boss -Command & Strategy</div>
         <p>Doesn't run errands. Runs operations. Identifies the opportunities, dispatches the right crew, reviews the work before it leaves the building. Nothing moves without sign-off on the big calls. The crew is loyal, capable, and fast. The Boss is deliberate, strategic, and always in control.</p>
       </div>
 
@@ -184,7 +175,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="guide-subtitle">// field manual for AI operator setup</div>
         <p>
           Everything documented in the journey distilled into a practical guide.
-          How to build a real AI operator setup from scratch — memory, crew, guardrails, integrations.
+          How to build a real AI operator setup from scratch -memory, crew, guardrails, integrations.
           The stuff the tutorials skip.
         </p>
         <p class="guide-note">
@@ -227,10 +218,10 @@ import Layout from '../layouts/Layout.astro';
                   return;
                 }
               }
-              // API not available — redirect to Beehiiv
+              // API not available -redirect to Beehiiv
               window.location.href = `${BEEHIIV_URL}?email=${encodeURIComponent(email)}`;
             } catch {
-              // Network error — redirect to Beehiiv
+              // Network error -redirect to Beehiiv
               window.location.href = `${BEEHIIV_URL}?email=${encodeURIComponent(email)}`;
             }
           });
@@ -239,73 +230,10 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="footer-logo"><span class="footer-logo-box">TCF</span> The Claw Father</span>
-          <span class="footer-sub">A <a href="https://deepanchorstudio.com" target="_blank">Deep Anchor Studio</a> project</span>
-        </div>
-        <div class="footer-links">
-          <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener">X / Twitter</a>
-          <a href="#journey">Journal</a>
-          <a href="#guide">The Guide</a>
-        </div>
-      </div>
-      <div class="footer-copy">
-        &copy; 2026 Deep Anchor Studio. Building in public.
-      </div>
-    </div>
-  </footer>
+  <Footer />
 </Layout>
 
 <style>
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,8,8,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .nav-inner {
-    max-width: var(--max-w);
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo {
-    font-weight: 700;
-    font-size: 1.05rem;
-    color: var(--text);
-    letter-spacing: -0.02em;
-    font-family: var(--font-serif);
-  }
-  .logo:hover { text-decoration: none; color: var(--text); }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    font-size: 0.9rem;
-  }
-  .nav-links a { color: var(--text-muted); transition: color 0.2s; }
-  .nav-links a:hover { color: var(--text); text-decoration: none; }
-  .btn-nav {
-    background: var(--accent-red);
-    color: #fff !important;
-    padding: 7px 16px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: opacity 0.2s;
-  }
-  .btn-nav:hover { opacity: 0.85; }
-
   /* CONTAINER */
   .container {
     max-width: var(--max-w);
@@ -672,65 +600,12 @@ import Layout from '../layouts/Layout.astro';
   .form-msg--success { background: #0d2b1a; border: 1px solid #2d6a4f; color: #6fcf97; }
   .form-msg--error { background: #2b0d0d; border: 1px solid var(--accent-red); color: #f08080; }
 
-  /* FOOTER */
-  footer {
-    padding: 40px 0;
-  }
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .footer-logo {
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .footer-logo-box {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    color: var(--accent-gold);
-    background: var(--bg-3);
-    border: 1px solid var(--border);
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 400;
-  }
-  .footer-sub { font-size: 0.8rem; color: var(--text-muted); }
-  .footer-sub a { color: var(--text-muted); }
-  .footer-sub a:hover { color: var(--text); }
-  .footer-links {
-    display: flex;
-    gap: 24px;
-    font-size: 0.9rem;
-  }
-  .footer-links a { color: var(--text-muted); }
-  .footer-links a:hover { color: var(--text); text-decoration: none; }
-  .footer-copy {
-    font-size: 0.8rem;
-    color: var(--text-faint);
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-  }
-
   /* RESPONSIVE */
   @media (max-width: 600px) {
-    .nav-links a:not(.btn-nav) { display: none; }
     .about-grid { grid-template-columns: 1fr; }
     .about-stats { flex-direction: row; justify-content: space-between; }
     .stat { text-align: left; }
     .crew-grid { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; align-items: flex-start; }
     .hero h1 { font-size: 3rem; }
   }
 </style>

@@ -1,0 +1,80 @@
+---
+import { caseLifecycle } from '../data/fed-scoring';
+---
+
+<div class="lifecycle">
+  {caseLifecycle.map((stage, i) => (
+    <div class="lifecycle-stage">
+      <div class="stage-header">
+        <span class="stage-num">{stage.stage}</span>
+        <span class="stage-name">{stage.name}</span>
+      </div>
+      <p class="stage-desc">{stage.description}</p>
+      {i < caseLifecycle.length - 1 && <div class="stage-connector"></div>}
+    </div>
+  ))}
+</div>
+
+<style>
+  .lifecycle {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .lifecycle-stage {
+    position: relative;
+    padding: 20px 24px 20px 72px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .stage-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .stage-num {
+    position: absolute;
+    left: 24px;
+    top: 20px;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent-gold);
+    border-radius: 50%;
+  }
+  .stage-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+  }
+  .stage-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .stage-connector {
+    position: absolute;
+    bottom: -12px;
+    left: 39px;
+    width: 2px;
+    height: 12px;
+    background: var(--border);
+    z-index: 1;
+  }
+
+  @media (max-width: 600px) {
+    .lifecycle-stage { padding-left: 64px; }
+    .stage-num { left: 20px; }
+    .stage-connector { left: 35px; }
+  }
+</style>

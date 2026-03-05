@@ -1,0 +1,63 @@
+---
+interface Props {
+  heading: string;
+  description?: string;
+  buttonText: string;
+  buttonHref: string;
+  external?: boolean;
+}
+
+const { heading, description, buttonText, buttonHref, external = false } = Astro.props;
+---
+
+<section class="cta-block">
+  <div class="container">
+    <h2>{heading}</h2>
+    {description && <p class="cta-desc">{description}</p>}
+    <a
+      href={buttonHref}
+      class="btn-primary"
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+    >
+      {buttonText}
+    </a>
+  </div>
+</section>
+
+<style>
+  .cta-block {
+    padding: 64px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  .cta-desc {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-red);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; text-decoration: none; color: #fff; }
+</style>

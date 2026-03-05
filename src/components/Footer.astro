@@ -1,0 +1,83 @@
+---
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo"><span class="footer-logo-box">TCF</span> The Claw Father</span>
+        <span class="footer-sub">A <a href="https://deepanchorstudio.com" target="_blank">Deep Anchor Studio</a> project</span>
+      </div>
+      <div class="footer-links">
+        <a href="/crew">Crew</a>
+        <a href="/the-fed">The Fed</a>
+        <a href="/dispatcher">Dispatcher</a>
+        <a href="https://x.com/TheClawFatherAI" target="_blank" rel="noopener">X / Twitter</a>
+      </div>
+    </div>
+    <div class="footer-copy">
+      &copy; 2026 Deep Anchor Studio. Building in public.
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: 40px 0;
+  }
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .footer-logo {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-logo-box {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 400;
+  }
+  .footer-sub { font-size: 0.8rem; color: var(--text-muted); }
+  .footer-sub a { color: var(--text-muted); }
+  .footer-sub a:hover { color: var(--text); }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    font-size: 0.9rem;
+  }
+  .footer-links a { color: var(--text-muted); }
+  .footer-links a:hover { color: var(--text); text-decoration: none; }
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
