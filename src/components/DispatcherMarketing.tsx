@@ -333,6 +333,35 @@ export default function DispatcherMarketing() {
               verified deliverables — across your entire crew, working in
               parallel.
             </p>
+
+            {/* Hero inline CTA */}
+            <div className="mt-8">
+              {betaStatus === "success" ? (
+                <p className="text-sm text-emerald-400/80">You're on the list. We'll be in touch.</p>
+              ) : (
+                <form className="flex gap-3 max-w-md" onSubmit={handleBetaSubmit}>
+                  <input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={betaEmail}
+                    onChange={(e) => setBetaEmail(e.target.value)}
+                    className="flex-1 bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-2.5 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#8B5CF6]/40"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={betaStatus === "sending"}
+                    className="bg-[#7C3AED] hover:bg-[#6D28D9] disabled:opacity-60 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-colors whitespace-nowrap"
+                  >
+                    {betaStatus === "sending" ? "Sending..." : "Get Early Access"}
+                  </button>
+                </form>
+              )}
+              {betaStatus === "error" && (
+                <p className="mt-2 text-[11px] text-red-400/70">Something went wrong. Try again.</p>
+              )}
+              <p className="mt-2 text-[11px] text-white/20">No spam. We'll reach out when your spot opens.</p>
+            </div>
           </FadeUp>
         </section>
 

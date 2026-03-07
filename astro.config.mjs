@@ -10,5 +10,8 @@ export default defineConfig({
     ssr: {
       noExternal: ['@fluentui/react-icons'],
     },
+    server: {
+      allowedHosts: ['thes-mac-mini.tail731a99.ts.net'],
+    },
   },
 });
